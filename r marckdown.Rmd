@@ -1,0 +1,22 @@
+---
+title: "First document"
+author: "Eveling"
+date: "2022-11-28"
+output: pdf_document
+---
+##COMO CREAR DOCUMENTO EN RMARKDOWN
+```{r}
+mtcars
+```
+
+##ESTADÍSTICAS DESCRIPTIVAS
+
+```{r}
+summary(mtcars)
+```
+
+##GRAFICOS ENTRE VARIABLES
+```{r}
+plot(mtcars$mpg,mtcars$wt)
+```
+

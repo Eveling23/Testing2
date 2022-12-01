@@ -1,21 +1,34 @@
 1 + 2 + 3
 install.packages("rmarkdown")
+install.packages("dplyr")
+
 
 ## Practicando 
 library(readr)
 library("nortest")
 library(ggplot2)
+library(dplyr)
+
 
 data <- read.csv("D:/R/Testing2/Datos_Agro.csv", header = TRUE, sep = ";")
 View(data)
 
-# Los datos tienen 3 fechas, la primera antes de la aplicacion, las dos posteriores dsps
+#ZERO-INFLATED POISSON REGRESSION 
+install.packages("pscl")
+install.packages("boot")
+summary(data$frutos)
 
-# histograma y prueba de normalidad
+# histogram with x axis in log10 scale
+ggplot(data, aes(frutos)) + geom_histogram() + scale_x_log10()
 
-ggplot(data) + geom_histogram(aes(x=frutos,y=..count..),binwidth = 1)
+##No se entiende lo de poisson, sgte:
+## Una forma
+data2 = data[data$fecha=="4/09/2019"|data$fecha=="25/09/2019",]
 
-lillie.test(data$frutos)
-qqnorm(data$frutos)
+## otra forma (paquete dyplr)
+data2 <- filter(data,fecha=="4/09/2019"|fecha =="25/09/2019")
+View(data2)
 
-## cómo extraer los datos solo de las fechas (fecha 1 y fecha 2 por separado)?
+
+
+
